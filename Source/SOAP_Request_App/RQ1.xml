@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OTA_HotelResNotifRQ Version="0">
+  <POS>
+    <Source>
+      <RequestorID ID="21">
+        <CompanyName CompanyShortName="Travelocity" />
+      </RequestorID>
+    </Source>
+  </POS>
+  <HotelReservations>
+    <HotelReservation RoomStayReservation="true" CreateDateTime="2013-11-12T16:44:08Z" LastModifyDateTime="2013-11-12T16:44:08Z" ResStatus="Book" PassiveIndicator="true">
+      <POS>
+        <Source>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="??268524_null??" Code="45781433">Travelocity</CompanyName>
+          </BookingChannel>
+        </Source>
+      </POS>
+      <RoomStays>
+        <RoomStay RoomStayStatus="Book" IndexNumber="15766211">
+          <RoomTypes>
+            <RoomType NumberOfUnits="1" RoomTypeCode="11769" NonSmoking="true">
+              <RoomDescription Name="Standard Superior" Language="en-US" />
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="XTN4" RatePlanType="5" PriceViewableInd="false" PrepaidIndicator="true" />
+          </RatePlans>
+          <RoomRates>
+            <RoomRate InvBlockCode="92XXTN4">
+              <Rates>
+                <Rate EffectiveDate="2013-12-07" ExpireDate="2013-12-08" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="47.44" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="47.44" AmountAfterTax="53.61" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+                <Rate EffectiveDate="2013-12-06" ExpireDate="2013-12-07" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="47.44" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="47.44" AmountAfterTax="53.61" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts>
+            <GuestCount AgeQualifyingCode="10" Count="2" ResGuestRPH="1" />
+          </GuestCounts>
+          <CancelPenalties CancelPolicyIndicator="true">
+            <CancelPenalty>
+              <Deadline OffsetTimeUnit="Hour" OffsetUnitMultiplier="720" />
+              <AmountPercent NmbrOfNights="2" />
+            </CancelPenalty>
+          </CancelPenalties>
+          <Total AmountBeforeTax="94.88" AmountAfterTax="107.22" CurrencyCode="USD">
+            <Taxes>
+              <Tax Code="41" />
+            </Taxes>
+          </Total>
+          <TPA_Extensions>
+            <Promotions>
+              <Promotion PromotionCode="XTN4">
+                <PromotionDescriptions>
+                  <PromotionDescription Name="35% Off Sale" />
+                </PromotionDescriptions>
+              </Promotion>
+            </Promotions>
+          </TPA_Extensions>
+          <Reference ID="NOACK" Type="40" />
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest ResGuestRPH="1" AgeQualifyingCode="10">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>Peter</GivenName>
+                    <Surname>Tannenbaum</Surname>
+                  </PersonName>
+                </Customer>
+                <CompanyInfo />
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+        <ResGuest ResGuestRPH="2" AgeQualifyingCode="10">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>Kathryn</GivenName>
+                    <Surname>Tannenbaum</Surname>
+                  </PersonName>
+                </Customer>
+                <CompanyInfo />
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+      <ResGlobalInfo>
+        <TimeSpan Start="2013-12-06" Duration="P2D" End="2013-12-08" />
+        <Guarantee>
+          <GuaranteesAccepted>
+            <GuaranteeAccepted PaymentTransactionTypeCode="reserve">
+              <PaymentCard CardType="1" CardCode="AX" CardNumber="xxx" ExpireDate="0318">
+                <CardHolderName>TVLYFIRST TVLYLAST</CardHolderName>
+              </PaymentCard>
+            </GuaranteeAccepted>
+          </GuaranteesAccepted>
+        </Guarantee>
+        <Total AmountBeforeTax="94.88" AmountAfterTax="107.22" CurrencyCode="USD">
+          <Taxes>
+            <Tax Code="41" />
+          </Taxes>
+        </Total>
+        <HotelReservationIDs>
+          <HotelReservationID ResID_Type="14" ResID_Value="10210616826" ResID_Source="GH" />
+          <HotelReservationID ResID_Type="34" ResID_Value="333161332367" ResID_Source="??268524_null??" />
+        </HotelReservationIDs>
+        <Profiles>
+          <ProfileInfo>
+            <UniqueID ID="188507" Type="10" />
+            <Profile>
+              <CompanyInfo>
+                <CompanyName CompanyShortName="Hotel Cuna del Angel" />
+              </CompanyInfo>
+            </Profile>
+          </ProfileInfo>
+        </Profiles>
+      </ResGlobalInfo>
+    </HotelReservation>
+    <HotelReservation RoomStayReservation="true" CreateDateTime="2013-11-12T16:44:08Z" LastModifyDateTime="2013-11-12T16:44:08Z" ResStatus="Book" PassiveIndicator="true">
+      <POS>
+        <Source>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="??268524_null??" Code="45781433">Travelocity</CompanyName>
+          </BookingChannel>
+        </Source>
+      </POS>
+      <RoomStays>
+        <RoomStay RoomStayStatus="Book" IndexNumber="15766212">
+          <RoomTypes>
+            <RoomType NumberOfUnits="1" RoomTypeCode="11769" NonSmoking="true">
+              <RoomDescription Name="Standard Superior" Language="en-US" />
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="XTN4" RatePlanType="5" PriceViewableInd="false" PrepaidIndicator="true" />
+          </RatePlans>
+          <RoomRates>
+            <RoomRate InvBlockCode="92XXTN4">
+              <Rates>
+                <Rate EffectiveDate="2013-12-07" ExpireDate="2013-12-08" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="47.44" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="47.44" AmountAfterTax="53.61" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+                <Rate EffectiveDate="2013-12-06" ExpireDate="2013-12-07" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="47.44" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="47.44" AmountAfterTax="53.61" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts>
+            <GuestCount AgeQualifyingCode="10" Count="2" ResGuestRPH="2" />
+          </GuestCounts>
+          <CancelPenalties CancelPolicyIndicator="true">
+            <CancelPenalty>
+              <Deadline OffsetTimeUnit="Hour" OffsetUnitMultiplier="720" />
+              <AmountPercent NmbrOfNights="2" />
+            </CancelPenalty>
+          </CancelPenalties>
+          <Total AmountBeforeTax="94.88" AmountAfterTax="107.22" CurrencyCode="USD">
+            <Taxes>
+              <Tax Code="41" />
+            </Taxes>
+          </Total>
+          <TPA_Extensions>
+            <Promotions>
+              <Promotion PromotionCode="XTN4">
+                <PromotionDescriptions>
+                  <PromotionDescription Name="35% Off Sale" />
+                </PromotionDescriptions>
+              </Promotion>
+            </Promotions>
+          </TPA_Extensions>
+          <Reference ID="NOACK" Type="40" />
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest ResGuestRPH="1" AgeQualifyingCode="10">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>Peter</GivenName>
+                    <Surname>Tannenbaum</Surname>
+                  </PersonName>
+                </Customer>
+                <CompanyInfo />
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+        <ResGuest ResGuestRPH="2" AgeQualifyingCode="10">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>Kathryn</GivenName>
+                    <Surname>Tannenbaum</Surname>
+                  </PersonName>
+                </Customer>
+                <CompanyInfo />
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+      <ResGlobalInfo>
+        <TimeSpan Start="2013-12-06" Duration="P2D" End="2013-12-08" />
+        <Guarantee>
+          <GuaranteesAccepted>
+            <GuaranteeAccepted PaymentTransactionTypeCode="reserve">
+              <PaymentCard CardType="1" CardCode="AX" CardNumber="xxx" ExpireDate="0318">
+                <CardHolderName>TVLYFIRST TVLYLAST</CardHolderName>
+              </PaymentCard>
+            </GuaranteeAccepted>
+          </GuaranteesAccepted>
+        </Guarantee>
+        <Total AmountBeforeTax="94.88" AmountAfterTax="107.22" CurrencyCode="USD">
+          <Taxes>
+            <Tax Code="41" />
+          </Taxes>
+        </Total>
+        <HotelReservationIDs>
+          <HotelReservationID ResID_Type="14" ResID_Value="10210616826" ResID_Source="GH" />
+          <HotelReservationID ResID_Type="34" ResID_Value="333161332367" ResID_Source="??268524_null??" />
+        </HotelReservationIDs>
+        <Profiles>
+          <ProfileInfo>
+            <UniqueID ID="188507" Type="10" />
+            <Profile>
+              <CompanyInfo>
+                <CompanyName CompanyShortName="Hotel Cuna del Angel" />
+              </CompanyInfo>
+            </Profile>
+          </ProfileInfo>
+        </Profiles>
+      </ResGlobalInfo>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResNotifRQ>

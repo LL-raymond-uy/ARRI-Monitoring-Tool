@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <HTNGHeader xmlns="http://htng.org/1.1/Header/">
+      <timeStamp>3/7/2016 11:02:31 AM</timeStamp>
+      <echoToken>9720cf34-c32a-c944-9d70-a609cb33f447</echoToken>
+      <transactionId>785905400011abc</transactionId>
+      <action>Response</action>
+      <From>
+        <systemId>LeisureLink</systemId>
+        <Credential>
+          <userName>5334</userName>
+          <password>17150912</password>
+        </Credential>
+      </From>
+      <To>
+        <systemId />
+      </To>
+    </HTNGHeader>
+  </soap:Header>
+  <soap:Body>
+    <OTA_HotelInvNotifRS Version="1.002" xmlns="http://www.opentravel.org/OTA/2003/05">
+      <Success />
+    </OTA_HotelInvNotifRS>
+  </soap:Body>
+</soap:Envelope>

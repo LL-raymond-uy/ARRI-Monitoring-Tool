@@ -1,0 +1,3484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="WebServiceLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machinename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebServiceLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceCredentials" type="tns:ServiceCredentials" />
+      <s:complexType name="ServiceCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetPropertyAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="communityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPropertyAvailabilityResult" type="tns:PropertyAvail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PropertyAvail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Units" type="tns:ArrayOfUnitAvail" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdated" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnitAvail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UnitAvail" nillable="true" type="tns:UnitAvail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UnitAvail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuppressAutoRate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Availabilities" type="tns:ArrayOfAvailability" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAvailability">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Availability" nillable="true" type="tns:Availability" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Availability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AvailabilityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAvail" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PropMgmtCoID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumAvail" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinStay" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxStay" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateRack" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DBACutOff" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TODCutOff" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToArrival" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToDeparture" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnabledPublic" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Blackout" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnabledMerch" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseMarginPct" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseMarkupPct" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarkupAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarginPct" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateNet" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateTypeID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Updated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FloorPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="OverRideType" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistroIC" type="tns:ArrayOfInventoryControl" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInventoryControl">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryControl" nillable="true" type="tns:InventoryControl" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InventoryControl">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DistroID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Limit" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Reserve" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Blackout" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Booked" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUnitInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitInventoryResult" type="tns:UnitInventory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnitInventory">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuppressAutoRate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfInventory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Inventory" nillable="true" type="tns:Inventory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Inventory">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AvailabilityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAvail" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PropMgmtCoID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalInventory" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumAvail" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateRack" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DBACutOff" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TODCutOff" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToArrival" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToDeparture" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnabledPublic" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Blackout" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnabledMerch" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseMarginPct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseMarkupPct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarkupAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarginPct" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateNet" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateTypeID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Updated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FloorPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="OverRideType" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistroIC" type="tns:ArrayOfInventoryControl" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUnitAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitAvailabilityResult" type="tns:UnitAvail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyBestPricing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ARCNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Communityid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyBestPricingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPropertyBestPricingResult" type="tns:PropertyPricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PropertyPricing">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Units" type="tns:ArrayOfUnitPricing" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdated" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnitPricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UnitPricing" nillable="true" type="tns:UnitPricing" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UnitPricing">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuppressAutoRate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Availabilities" type="tns:ArrayOfDailyRate" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriceNet" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriceRack" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDailyRate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DailyRate" nillable="true" type="tns:DailyRate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DailyRate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAvail" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumAvail" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToArrival" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToDeparture" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Blackout" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateRack" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateNet" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DBACutOff" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TODCutOff" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rates" type="tns:ArrayOfRate" />
+          <s:element minOccurs="1" maxOccurs="1" name="CutOff" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stays" type="tns:ArrayOfStay" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Rate" nillable="true" type="tns:Rate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Rate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Closed" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tax" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PromoStatus" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStay">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Stay" nillable="true" type="tns:Stay" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Stay">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nights" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BaseRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tax" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fees" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Closed" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FeeDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MerchandisedFees" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchandisedFeeDesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUnitBestPricing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ARCNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitBestPricingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitBestPricingResult" type="tns:UnitPricing" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitAvailabilityCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitAvailabilityCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitAvailabilityCacheResult" type="tns:UnitAvail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="handler" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Availabilities" type="tns:ArrayOfAvailability" />
+            <s:element minOccurs="0" maxOccurs="1" name="Updateby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAvailabilityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BlackoutUnit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="handler" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Updateby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BlackoutUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BlackoutUnitResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeSuppliertUnitAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnitMapId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeSuppliertUnitAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GeSuppliertUnitAvailabilityResult" type="tns:SupplierUnitAvail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SupplierUnitAvail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitMapID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Availabilities" type="tns:ArrayOfSupplierRateAvailability" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSupplierRateAvailability">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SupplierRateAvailability" nillable="true" type="tns:SupplierRateAvailability" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SupplierRateAvailability">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AvailabilityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitMapID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAvail" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumAvail" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinStay" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxStay" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Blackout" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToArrival" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToDeparture" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RateNet" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSuppliertUnitAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnitMapId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSuppliertUnitAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuppliertUnitAvailabilityResult" type="tns:SupplierUnitAvail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSupplierUnitAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="handler" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Availabilities" type="tns:ArrayOfSupplierRateAvailability" />
+            <s:element minOccurs="0" maxOccurs="1" name="Updateby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSupplierUnitAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSupplierUnitAvailabilityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanSupplierAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="handler" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UnitMapID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatedBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanSupplierAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CleanSupplierAvailabilityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Upload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XMLText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ARMUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XMLText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ARMUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARMUploadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionRateAvailabilityChanges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DateRange" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="CommunityIdList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArcNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionRateAvailabilityChangesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistributionRateAvailabilityChangesResult" type="tns:ArrayOfDistributionProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDistributionProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DistributionProperty" nillable="true" type="tns:DistributionProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DistributionProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendRate" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendInventory" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetrieveBooking" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QueryTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="objRoomTypeList" type="tns:ArrayOfDistributionRoomType" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateSince" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AcceptsGuaranteeBookings" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviousRetrieveTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckPromRateAgainstFloor" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDistributionRoomType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DistributionRoomType" nillable="true" type="tns:DistributionRoomType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DistributionRoomType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoomCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Availabilities" type="tns:ArrayOfDailyRate" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetICSTaskRateAvail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArcNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FullUpdate" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetICSTaskRateAvailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetICSTaskRateAvailResult" type="tns:ArrayOfDistributionProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmSubmitRateAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UnitProfile" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="QueryTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmSubmitRateAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmSubmitRateAvailabilityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionModifiedUnits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="QueryTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArcNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DiscountRule" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxLengthofStay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxDOA" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BestAvailable" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionModifiedUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistributionModifiedUnitsResult" type="tns:DistributionProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:RRAChangedRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RRAChangedRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RateCodeList" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QueryTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArcNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountRule" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxLengthofStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxDOA" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FullSubmDOA" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BestAvailable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckPromoChange" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FullUpdate" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDistributionTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistributionTaskResult" type="tns:DistributionProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitDailyBestDiscounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitDailyBestDiscountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitDailyBestDiscountsResult" type="tns:ArrayOfDailyDiscount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDailyDiscount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DailyDiscount" nillable="true" type="tns:DailyDiscount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DailyDiscount">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateAvail" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Percent" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUnitAvailablePromotions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unitprofileid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUnitAvailablePromotionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUnitAvailablePromotionsResult" type="tns:ArrayOfDiscountCache" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDiscountCache">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DiscountCache" nillable="true" type="tns:DiscountCache" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DiscountCache">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AgencyID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountType" type="tns:DISCOUNTAMOUNTTYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ARC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CouponCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CouponFlatAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CouponType" type="tns:COUPONTYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="currentCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependencyOnTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiscloseToProperty" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dynamicMLOS" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnforceFullStayApplicability" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Friday" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListBlackOutDates" type="tns:ArrayOfBlackOutPeriod" />
+          <s:element minOccurs="1" maxOccurs="1" name="LLAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinPurchaseAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinStay" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Monday" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NightEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NightStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="originalCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Percentage" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PromoType" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PropAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PropMgmtCoID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateCodeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateLabel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailDiscount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Saturday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sunday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SupplierDiscount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Threshold1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Threshold2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Thursday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tuesday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeID" type="tns:DISCOUNTTYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitParam" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Wednesday" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CacheDiscounts" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DISCOUNTAMOUNTTYPE">
+        <s:restriction base="s:string">
+          <s:enumeration value="Flat" />
+          <s:enumeration value="Percentage" />
+          <s:enumeration value="FreeNight" />
+          <s:enumeration value="Incentive" />
+          <s:enumeration value="RateOverride" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="COUPONTYPE">
+        <s:restriction base="s:string">
+          <s:enumeration value="LowestRate" />
+          <s:enumeration value="RACRate" />
+          <s:enumeration value="FlatRate" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfBlackOutPeriod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BlackOutPeriod" nillable="true" type="tns:BlackOutPeriod" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BlackOutPeriod">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlackOutStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlackOutEnd" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DISCOUNTTYPE">
+        <s:restriction base="s:string">
+          <s:enumeration value="MiniVac" />
+          <s:enumeration value="AutoPricing" />
+          <s:enumeration value="MerchantNetRate" />
+          <s:enumeration value="Coupons" />
+          <s:enumeration value="LeisureLinkRate" />
+          <s:enumeration value="DynamicMLOS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetPropertyAvailablePromotions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPropertyAvailablePromotionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPropertyAvailablePromotionsResult" type="tns:ArrayOfDiscountCache" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshDiscountCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="RefreshDiscountCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RefreshDiscountCacheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshRateAvailCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="RefreshRateAvailCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RefreshRateAvailCacheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshCache">
+        <s:complexType />
+      </s:element>
+      <s:element name="RefreshCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RefreshCacheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCacheAvailability">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="handler" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitProfileID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="DateAvail" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumAvail" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCacheAvailabilityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetChannelRateCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChannelRateCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChannelRateCodesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMajorChannels">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMajorChannelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMajorChannelsResult" type="tns:ArrayOfDistroMapping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDistroMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DistroMapping" nillable="true" type="tns:DistroMapping" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DistroMapping">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ARC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RateCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChannelType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChannelID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChannelShortName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOpaqueChannels">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOpaqueChannelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpaqueChannelsResult" type="tns:ArrayOfDistroMapping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackagingChannels">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPackagingChannelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackagingChannelsResult" type="tns:ArrayOfDistroMapping" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckOpaqueParticipation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChannelShortName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckOpaqueParticipationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckOpaqueParticipationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPackagingParticipation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChannelShortName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPackagingParticipationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPackagingParticipationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckDistroStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="channelid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodeName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckDistroStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckDistroStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistroChannelInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RateCodeName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistroChannelInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistroChannelInfoResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInventoryStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="days" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInventoryStatusResult" type="tns:ArrayOfPropertyInventoryStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPropertyInventoryStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PropertyInventoryStatus" nillable="true" type="tns:PropertyInventoryStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyInventoryStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitList" type="tns:ArrayOfUnitInventoryStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUnitInventoryStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UnitInventoryStatus" nillable="true" type="tns:UnitInventoryStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UnitInventoryStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UnitProfileID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MissingInventory" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoInventory" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MoreInventory" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoRate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Blackout" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClosedToArrival" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DBA" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MLoS" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirstNonAvailableDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastAvailableDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDistributionCommission">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TravelAgentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RateCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommunityID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ManagementCompanyID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistributionCommissionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDistributionCommissionResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="PropertyAvail" nillable="true" type="tns:PropertyAvail" />
+      <s:element name="UnitInventory" nillable="true" type="tns:UnitInventory" />
+      <s:element name="UnitAvail" nillable="true" type="tns:UnitAvail" />
+      <s:element name="PropertyPricing" nillable="true" type="tns:PropertyPricing" />
+      <s:element name="UnitPricing" nillable="true" type="tns:UnitPricing" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="SupplierUnitAvail" nillable="true" type="tns:SupplierUnitAvail" />
+      <s:element name="ArrayOfDistributionProperty" nillable="true" type="tns:ArrayOfDistributionProperty" />
+      <s:element name="DistributionProperty" nillable="true" type="tns:DistributionProperty" />
+      <s:element name="ArrayOfDailyDiscount" nillable="true" type="tns:ArrayOfDailyDiscount" />
+      <s:element name="ArrayOfDiscountCache" nillable="true" type="tns:ArrayOfDiscountCache" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="ArrayOfDistroMapping" nillable="true" type="tns:ArrayOfDistroMapping" />
+      <s:element name="int" type="s:int" />
+      <s:element name="ArrayOfInt" nillable="true" type="tns:ArrayOfInt" />
+      <s:element name="ArrayOfPropertyInventoryStatus" nillable="true" type="tns:ArrayOfPropertyInventoryStatus" />
+      <s:element name="decimal" type="s:decimal" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WebServiceLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:WebServiceLogin" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:WebServiceLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginServiceCredentials">
+    <wsdl:part name="ServiceCredentials" element="tns:ServiceCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyBestPricingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyBestPricing" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyBestPricingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyBestPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitBestPricingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitBestPricing" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitBestPricingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitBestPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitAvailabilityCache" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitAvailabilityCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAvailability" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="BlackoutUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:BlackoutUnit" />
+  </wsdl:message>
+  <wsdl:message name="BlackoutUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:BlackoutUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeSuppliertUnitAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GeSuppliertUnitAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GeSuppliertUnitAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GeSuppliertUnitAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliertUnitAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSuppliertUnitAvailability" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliertUnitAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSuppliertUnitAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSupplierUnitAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierUnitAvailability" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSupplierUnitAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierUnitAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanSupplierAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:CleanSupplierAvailability" />
+  </wsdl:message>
+  <wsdl:message name="CleanSupplierAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:CleanSupplierAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadSoapIn">
+    <wsdl:part name="parameters" element="tns:Upload" />
+  </wsdl:message>
+  <wsdl:message name="UploadSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ARMUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:ARMUpload" />
+  </wsdl:message>
+  <wsdl:message name="ARMUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:ARMUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRateAvailabilityChangesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistributionRateAvailabilityChanges" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRateAvailabilityChangesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistributionRateAvailabilityChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetICSTaskRateAvailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetICSTaskRateAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetICSTaskRateAvailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetICSTaskRateAvailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmSubmitRateAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmSubmitRateAvailability" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmSubmitRateAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmSubmitRateAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionModifiedUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistributionModifiedUnits" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionModifiedUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistributionModifiedUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistributionTask" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistributionTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitDailyBestDiscountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitDailyBestDiscounts" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitDailyBestDiscountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitDailyBestDiscountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailablePromotionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnitAvailablePromotions" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailablePromotionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnitAvailablePromotionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailablePromotionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPropertyAvailablePromotions" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailablePromotionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPropertyAvailablePromotionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefreshDiscountCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshDiscountCache" />
+  </wsdl:message>
+  <wsdl:message name="RefreshDiscountCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshDiscountCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefreshRateAvailCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshRateAvailCache" />
+  </wsdl:message>
+  <wsdl:message name="RefreshRateAvailCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshRateAvailCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefreshCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshCache" />
+  </wsdl:message>
+  <wsdl:message name="RefreshCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCacheAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCacheAvailability" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCacheAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCacheAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelRateCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChannelRateCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelRateCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChannelRateCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMajorChannelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMajorChannels" />
+  </wsdl:message>
+  <wsdl:message name="GetMajorChannelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMajorChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpaqueChannelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpaqueChannels" />
+  </wsdl:message>
+  <wsdl:message name="GetOpaqueChannelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpaqueChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagingChannelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackagingChannels" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagingChannelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackagingChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckOpaqueParticipationSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckOpaqueParticipation" />
+  </wsdl:message>
+  <wsdl:message name="CheckOpaqueParticipationSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckOpaqueParticipationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackagingParticipationSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPackagingParticipation" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackagingParticipationSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPackagingParticipationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckDistroStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDistroStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckDistroStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDistroStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistroChannelInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistroChannelInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDistroChannelInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistroChannelInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionCommissionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistributionCommission" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionCommissionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistributionCommissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginHttpGetIn">
+    <wsdl:part name="appname" type="s:string" />
+    <wsdl:part name="clientname" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="machinename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilityHttpGetIn">
+    <wsdl:part name="communityid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:PropertyAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitInventoryHttpGetIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitInventoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:UnitInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityHttpGetIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:UnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyBestPricingHttpGetIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="ARCNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="Communityid" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="Startdate" type="s:string" />
+    <wsdl:part name="Enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyBestPricingHttpGetOut">
+    <wsdl:part name="Body" element="tns:PropertyPricing" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitBestPricingHttpGetIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="ARCNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="Unitprofileid" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="Startdate" type="s:string" />
+    <wsdl:part name="Enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitBestPricingHttpGetOut">
+    <wsdl:part name="Body" element="tns:UnitPricing" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityCacheHttpGetIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:UnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="BlackoutUnitHttpGetIn">
+    <wsdl:part name="handler" type="s:string" />
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+    <wsdl:part name="Updateby" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BlackoutUnitHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GeSuppliertUnitAvailabilityHttpGetIn">
+    <wsdl:part name="UnitMapId" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GeSuppliertUnitAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:SupplierUnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliertUnitAvailabilityHttpGetIn">
+    <wsdl:part name="UnitMapId" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliertUnitAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:SupplierUnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="UploadHttpGetIn">
+    <wsdl:part name="XMLText" type="s:string" />
+    <wsdl:part name="UserID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ARMUploadHttpGetIn">
+    <wsdl:part name="XMLText" type="s:string" />
+    <wsdl:part name="UserID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ARMUploadHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRateAvailabilityChangesHttpGetIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="DateRange" type="s:string" />
+    <wsdl:part name="LastUpdate" type="s:string" />
+    <wsdl:part name="CommunityIdList" type="s:string" />
+    <wsdl:part name="ArcNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRateAvailabilityChangesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistributionProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetICSTaskRateAvailHttpGetIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="RegistrationID" type="s:string" />
+    <wsdl:part name="ArcNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="FullUpdate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetICSTaskRateAvailHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistributionProperty" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmSubmitRateAvailabilityHttpGetIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="UnitProfile" type="s:string" />
+    <wsdl:part name="QueryTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmSubmitRateAvailabilityHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionModifiedUnitsHttpGetIn">
+    <wsdl:part name="CommunityId" type="s:string" />
+    <wsdl:part name="QueryTime" type="s:string" />
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="ArcNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="DiscountRule" type="s:string" />
+    <wsdl:part name="MaxLengthofStay" type="s:string" />
+    <wsdl:part name="MaxDOA" type="s:string" />
+    <wsdl:part name="BestAvailable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionModifiedUnitsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DistributionProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitDailyBestDiscountsHttpGetIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitDailyBestDiscountsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDailyDiscount" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailablePromotionsHttpGetIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailablePromotionsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDiscountCache" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailablePromotionsHttpGetIn">
+    <wsdl:part name="CommunityId" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailablePromotionsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDiscountCache" />
+  </wsdl:message>
+  <wsdl:message name="RefreshDiscountCacheHttpGetIn" />
+  <wsdl:message name="RefreshDiscountCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RefreshRateAvailCacheHttpGetIn" />
+  <wsdl:message name="RefreshRateAvailCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RefreshCacheHttpGetIn" />
+  <wsdl:message name="RefreshCacheHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCacheAvailabilityHttpGetIn">
+    <wsdl:part name="handler" type="s:string" />
+    <wsdl:part name="unitProfileID" type="s:string" />
+    <wsdl:part name="DateAvail" type="s:string" />
+    <wsdl:part name="NumAvail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCacheAvailabilityHttpGetOut" />
+  <wsdl:message name="GetChannelRateCodesHttpGetIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelRateCodesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetMajorChannelsHttpGetIn" />
+  <wsdl:message name="GetMajorChannelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistroMapping" />
+  </wsdl:message>
+  <wsdl:message name="GetOpaqueChannelsHttpGetIn" />
+  <wsdl:message name="GetOpaqueChannelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistroMapping" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagingChannelsHttpGetIn" />
+  <wsdl:message name="GetPackagingChannelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistroMapping" />
+  </wsdl:message>
+  <wsdl:message name="CheckOpaqueParticipationHttpGetIn">
+    <wsdl:part name="ChannelShortName" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckOpaqueParticipationHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackagingParticipationHttpGetIn">
+    <wsdl:part name="ChannelShortName" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackagingParticipationHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckDistroStatusHttpGetIn">
+    <wsdl:part name="CommunityID" type="s:string" />
+    <wsdl:part name="channelid" type="s:string" />
+    <wsdl:part name="RateCodeName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckDistroStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDistroChannelInfoHttpGetIn">
+    <wsdl:part name="RateCodeName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistroChannelInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInt" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryStatusHttpGetIn">
+    <wsdl:part name="days" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPropertyInventoryStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionCommissionHttpGetIn">
+    <wsdl:part name="TravelAgentCode" type="s:string" />
+    <wsdl:part name="RateCode" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+    <wsdl:part name="ManagementCompanyID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionCommissionHttpGetOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginHttpPostIn">
+    <wsdl:part name="appname" type="s:string" />
+    <wsdl:part name="clientname" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="machinename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilityHttpPostIn">
+    <wsdl:part name="communityid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailabilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:PropertyAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitInventoryHttpPostIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitInventoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:UnitInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityHttpPostIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:UnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyBestPricingHttpPostIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="ARCNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="Communityid" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="Startdate" type="s:string" />
+    <wsdl:part name="Enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyBestPricingHttpPostOut">
+    <wsdl:part name="Body" element="tns:PropertyPricing" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitBestPricingHttpPostIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="ARCNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="Unitprofileid" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="Startdate" type="s:string" />
+    <wsdl:part name="Enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitBestPricingHttpPostOut">
+    <wsdl:part name="Body" element="tns:UnitPricing" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityCacheHttpPostIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailabilityCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:UnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="BlackoutUnitHttpPostIn">
+    <wsdl:part name="handler" type="s:string" />
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+    <wsdl:part name="Updateby" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BlackoutUnitHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GeSuppliertUnitAvailabilityHttpPostIn">
+    <wsdl:part name="UnitMapId" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GeSuppliertUnitAvailabilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:SupplierUnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliertUnitAvailabilityHttpPostIn">
+    <wsdl:part name="UnitMapId" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliertUnitAvailabilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:SupplierUnitAvail" />
+  </wsdl:message>
+  <wsdl:message name="UploadHttpPostIn">
+    <wsdl:part name="XMLText" type="s:string" />
+    <wsdl:part name="UserID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UploadHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ARMUploadHttpPostIn">
+    <wsdl:part name="XMLText" type="s:string" />
+    <wsdl:part name="UserID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ARMUploadHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRateAvailabilityChangesHttpPostIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="DateRange" type="s:string" />
+    <wsdl:part name="LastUpdate" type="s:string" />
+    <wsdl:part name="CommunityIdList" type="s:string" />
+    <wsdl:part name="ArcNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionRateAvailabilityChangesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistributionProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetICSTaskRateAvailHttpPostIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="RegistrationID" type="s:string" />
+    <wsdl:part name="ArcNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="FullUpdate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetICSTaskRateAvailHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistributionProperty" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmSubmitRateAvailabilityHttpPostIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="UnitProfile" type="s:string" />
+    <wsdl:part name="QueryTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmSubmitRateAvailabilityHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionModifiedUnitsHttpPostIn">
+    <wsdl:part name="CommunityId" type="s:string" />
+    <wsdl:part name="QueryTime" type="s:string" />
+    <wsdl:part name="ChannelID" type="s:string" />
+    <wsdl:part name="ArcNumber" type="s:string" />
+    <wsdl:part name="RateCodes" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="DiscountRule" type="s:string" />
+    <wsdl:part name="MaxLengthofStay" type="s:string" />
+    <wsdl:part name="MaxDOA" type="s:string" />
+    <wsdl:part name="BestAvailable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionModifiedUnitsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DistributionProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitDailyBestDiscountsHttpPostIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="MinStay" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitDailyBestDiscountsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDailyDiscount" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailablePromotionsHttpPostIn">
+    <wsdl:part name="unitprofileid" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUnitAvailablePromotionsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDiscountCache" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailablePromotionsHttpPostIn">
+    <wsdl:part name="CommunityId" type="s:string" />
+    <wsdl:part name="startdate" type="s:string" />
+    <wsdl:part name="enddate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPropertyAvailablePromotionsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDiscountCache" />
+  </wsdl:message>
+  <wsdl:message name="RefreshDiscountCacheHttpPostIn" />
+  <wsdl:message name="RefreshDiscountCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RefreshRateAvailCacheHttpPostIn" />
+  <wsdl:message name="RefreshRateAvailCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RefreshCacheHttpPostIn" />
+  <wsdl:message name="RefreshCacheHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCacheAvailabilityHttpPostIn">
+    <wsdl:part name="handler" type="s:string" />
+    <wsdl:part name="unitProfileID" type="s:string" />
+    <wsdl:part name="DateAvail" type="s:string" />
+    <wsdl:part name="NumAvail" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCacheAvailabilityHttpPostOut" />
+  <wsdl:message name="GetChannelRateCodesHttpPostIn">
+    <wsdl:part name="ChannelID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChannelRateCodesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetMajorChannelsHttpPostIn" />
+  <wsdl:message name="GetMajorChannelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistroMapping" />
+  </wsdl:message>
+  <wsdl:message name="GetOpaqueChannelsHttpPostIn" />
+  <wsdl:message name="GetOpaqueChannelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistroMapping" />
+  </wsdl:message>
+  <wsdl:message name="GetPackagingChannelsHttpPostIn" />
+  <wsdl:message name="GetPackagingChannelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDistroMapping" />
+  </wsdl:message>
+  <wsdl:message name="CheckOpaqueParticipationHttpPostIn">
+    <wsdl:part name="ChannelShortName" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckOpaqueParticipationHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackagingParticipationHttpPostIn">
+    <wsdl:part name="ChannelShortName" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPackagingParticipationHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckDistroStatusHttpPostIn">
+    <wsdl:part name="CommunityID" type="s:string" />
+    <wsdl:part name="channelid" type="s:string" />
+    <wsdl:part name="RateCodeName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckDistroStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDistroChannelInfoHttpPostIn">
+    <wsdl:part name="RateCodeName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistroChannelInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInt" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryStatusHttpPostIn">
+    <wsdl:part name="days" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPropertyInventoryStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionCommissionHttpPostIn">
+    <wsdl:part name="TravelAgentCode" type="s:string" />
+    <wsdl:part name="RateCode" type="s:string" />
+    <wsdl:part name="CommunityID" type="s:string" />
+    <wsdl:part name="ManagementCompanyID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistributionCommissionHttpPostOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:portType name="RateAvailabilitySoap">
+    <wsdl:operation name="WebServiceLogin">
+      <wsdl:input message="tns:WebServiceLoginSoapIn" />
+      <wsdl:output message="tns:WebServiceLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <wsdl:input message="tns:GetPropertyAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetPropertyAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <wsdl:input message="tns:GetUnitInventorySoapIn" />
+      <wsdl:output message="tns:GetUnitInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <wsdl:input message="tns:GetUnitAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetUnitAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <wsdl:input message="tns:GetPropertyBestPricingSoapIn" />
+      <wsdl:output message="tns:GetPropertyBestPricingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <wsdl:input message="tns:GetUnitBestPricingSoapIn" />
+      <wsdl:output message="tns:GetUnitBestPricingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <wsdl:input message="tns:GetUnitAvailabilityCacheSoapIn" />
+      <wsdl:output message="tns:GetUnitAvailabilityCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAvailability">
+      <wsdl:input message="tns:UpdateAvailabilitySoapIn" />
+      <wsdl:output message="tns:UpdateAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <wsdl:input message="tns:BlackoutUnitSoapIn" />
+      <wsdl:output message="tns:BlackoutUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <wsdl:input message="tns:GeSuppliertUnitAvailabilitySoapIn" />
+      <wsdl:output message="tns:GeSuppliertUnitAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <wsdl:input message="tns:GetSuppliertUnitAvailabilitySoapIn" />
+      <wsdl:output message="tns:GetSuppliertUnitAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierUnitAvailability">
+      <wsdl:input message="tns:UpdateSupplierUnitAvailabilitySoapIn" />
+      <wsdl:output message="tns:UpdateSupplierUnitAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanSupplierAvailability">
+      <wsdl:input message="tns:CleanSupplierAvailabilitySoapIn" />
+      <wsdl:output message="tns:CleanSupplierAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:input message="tns:UploadSoapIn" />
+      <wsdl:output message="tns:UploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <wsdl:input message="tns:ARMUploadSoapIn" />
+      <wsdl:output message="tns:ARMUploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <wsdl:input message="tns:GetDistributionRateAvailabilityChangesSoapIn" />
+      <wsdl:output message="tns:GetDistributionRateAvailabilityChangesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <wsdl:input message="tns:GetICSTaskRateAvailSoapIn" />
+      <wsdl:output message="tns:GetICSTaskRateAvailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <wsdl:input message="tns:ConfirmSubmitRateAvailabilitySoapIn" />
+      <wsdl:output message="tns:ConfirmSubmitRateAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <wsdl:input message="tns:GetDistributionModifiedUnitsSoapIn" />
+      <wsdl:output message="tns:GetDistributionModifiedUnitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionTask">
+      <wsdl:input message="tns:GetDistributionTaskSoapIn" />
+      <wsdl:output message="tns:GetDistributionTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <wsdl:input message="tns:GetUnitDailyBestDiscountsSoapIn" />
+      <wsdl:output message="tns:GetUnitDailyBestDiscountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <wsdl:input message="tns:GetUnitAvailablePromotionsSoapIn" />
+      <wsdl:output message="tns:GetUnitAvailablePromotionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <wsdl:input message="tns:GetPropertyAvailablePromotionsSoapIn" />
+      <wsdl:output message="tns:GetPropertyAvailablePromotionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <wsdl:input message="tns:RefreshDiscountCacheSoapIn" />
+      <wsdl:output message="tns:RefreshDiscountCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <wsdl:input message="tns:RefreshRateAvailCacheSoapIn" />
+      <wsdl:output message="tns:RefreshRateAvailCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <wsdl:input message="tns:RefreshCacheSoapIn" />
+      <wsdl:output message="tns:RefreshCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <wsdl:input message="tns:UpdateCacheAvailabilitySoapIn" />
+      <wsdl:output message="tns:UpdateCacheAvailabilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <wsdl:input message="tns:GetChannelRateCodesSoapIn" />
+      <wsdl:output message="tns:GetChannelRateCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <wsdl:input message="tns:GetMajorChannelsSoapIn" />
+      <wsdl:output message="tns:GetMajorChannelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <wsdl:input message="tns:GetOpaqueChannelsSoapIn" />
+      <wsdl:output message="tns:GetOpaqueChannelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <wsdl:input message="tns:GetPackagingChannelsSoapIn" />
+      <wsdl:output message="tns:GetPackagingChannelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <wsdl:input message="tns:CheckOpaqueParticipationSoapIn" />
+      <wsdl:output message="tns:CheckOpaqueParticipationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <wsdl:input message="tns:CheckPackagingParticipationSoapIn" />
+      <wsdl:output message="tns:CheckPackagingParticipationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <wsdl:input message="tns:CheckDistroStatusSoapIn" />
+      <wsdl:output message="tns:CheckDistroStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <wsdl:input message="tns:GetDistroChannelInfoSoapIn" />
+      <wsdl:output message="tns:GetDistroChannelInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <wsdl:input message="tns:GetInventoryStatusSoapIn" />
+      <wsdl:output message="tns:GetInventoryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <wsdl:input message="tns:GetDistributionCommissionSoapIn" />
+      <wsdl:output message="tns:GetDistributionCommissionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RateAvailabilityHttpGet">
+    <wsdl:operation name="WebServiceLogin">
+      <wsdl:input message="tns:WebServiceLoginHttpGetIn" />
+      <wsdl:output message="tns:WebServiceLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <wsdl:input message="tns:GetPropertyAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:GetPropertyAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <wsdl:input message="tns:GetUnitInventoryHttpGetIn" />
+      <wsdl:output message="tns:GetUnitInventoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <wsdl:input message="tns:GetUnitAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:GetUnitAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <wsdl:input message="tns:GetPropertyBestPricingHttpGetIn" />
+      <wsdl:output message="tns:GetPropertyBestPricingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <wsdl:input message="tns:GetUnitBestPricingHttpGetIn" />
+      <wsdl:output message="tns:GetUnitBestPricingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <wsdl:input message="tns:GetUnitAvailabilityCacheHttpGetIn" />
+      <wsdl:output message="tns:GetUnitAvailabilityCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <wsdl:input message="tns:BlackoutUnitHttpGetIn" />
+      <wsdl:output message="tns:BlackoutUnitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <wsdl:input message="tns:GeSuppliertUnitAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:GeSuppliertUnitAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <wsdl:input message="tns:GetSuppliertUnitAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:GetSuppliertUnitAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:input message="tns:UploadHttpGetIn" />
+      <wsdl:output message="tns:UploadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <wsdl:input message="tns:ARMUploadHttpGetIn" />
+      <wsdl:output message="tns:ARMUploadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <wsdl:input message="tns:GetDistributionRateAvailabilityChangesHttpGetIn" />
+      <wsdl:output message="tns:GetDistributionRateAvailabilityChangesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <wsdl:input message="tns:GetICSTaskRateAvailHttpGetIn" />
+      <wsdl:output message="tns:GetICSTaskRateAvailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <wsdl:input message="tns:ConfirmSubmitRateAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:ConfirmSubmitRateAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <wsdl:input message="tns:GetDistributionModifiedUnitsHttpGetIn" />
+      <wsdl:output message="tns:GetDistributionModifiedUnitsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <wsdl:input message="tns:GetUnitDailyBestDiscountsHttpGetIn" />
+      <wsdl:output message="tns:GetUnitDailyBestDiscountsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <wsdl:input message="tns:GetUnitAvailablePromotionsHttpGetIn" />
+      <wsdl:output message="tns:GetUnitAvailablePromotionsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <wsdl:input message="tns:GetPropertyAvailablePromotionsHttpGetIn" />
+      <wsdl:output message="tns:GetPropertyAvailablePromotionsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <wsdl:input message="tns:RefreshDiscountCacheHttpGetIn" />
+      <wsdl:output message="tns:RefreshDiscountCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <wsdl:input message="tns:RefreshRateAvailCacheHttpGetIn" />
+      <wsdl:output message="tns:RefreshRateAvailCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <wsdl:input message="tns:RefreshCacheHttpGetIn" />
+      <wsdl:output message="tns:RefreshCacheHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <wsdl:input message="tns:UpdateCacheAvailabilityHttpGetIn" />
+      <wsdl:output message="tns:UpdateCacheAvailabilityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <wsdl:input message="tns:GetChannelRateCodesHttpGetIn" />
+      <wsdl:output message="tns:GetChannelRateCodesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <wsdl:input message="tns:GetMajorChannelsHttpGetIn" />
+      <wsdl:output message="tns:GetMajorChannelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <wsdl:input message="tns:GetOpaqueChannelsHttpGetIn" />
+      <wsdl:output message="tns:GetOpaqueChannelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <wsdl:input message="tns:GetPackagingChannelsHttpGetIn" />
+      <wsdl:output message="tns:GetPackagingChannelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <wsdl:input message="tns:CheckOpaqueParticipationHttpGetIn" />
+      <wsdl:output message="tns:CheckOpaqueParticipationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <wsdl:input message="tns:CheckPackagingParticipationHttpGetIn" />
+      <wsdl:output message="tns:CheckPackagingParticipationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <wsdl:input message="tns:CheckDistroStatusHttpGetIn" />
+      <wsdl:output message="tns:CheckDistroStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <wsdl:input message="tns:GetDistroChannelInfoHttpGetIn" />
+      <wsdl:output message="tns:GetDistroChannelInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <wsdl:input message="tns:GetInventoryStatusHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <wsdl:input message="tns:GetDistributionCommissionHttpGetIn" />
+      <wsdl:output message="tns:GetDistributionCommissionHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RateAvailabilityHttpPost">
+    <wsdl:operation name="WebServiceLogin">
+      <wsdl:input message="tns:WebServiceLoginHttpPostIn" />
+      <wsdl:output message="tns:WebServiceLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <wsdl:input message="tns:GetPropertyAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:GetPropertyAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <wsdl:input message="tns:GetUnitInventoryHttpPostIn" />
+      <wsdl:output message="tns:GetUnitInventoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <wsdl:input message="tns:GetUnitAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:GetUnitAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <wsdl:input message="tns:GetPropertyBestPricingHttpPostIn" />
+      <wsdl:output message="tns:GetPropertyBestPricingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <wsdl:input message="tns:GetUnitBestPricingHttpPostIn" />
+      <wsdl:output message="tns:GetUnitBestPricingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <wsdl:input message="tns:GetUnitAvailabilityCacheHttpPostIn" />
+      <wsdl:output message="tns:GetUnitAvailabilityCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <wsdl:input message="tns:BlackoutUnitHttpPostIn" />
+      <wsdl:output message="tns:BlackoutUnitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <wsdl:input message="tns:GeSuppliertUnitAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:GeSuppliertUnitAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <wsdl:input message="tns:GetSuppliertUnitAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:GetSuppliertUnitAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:input message="tns:UploadHttpPostIn" />
+      <wsdl:output message="tns:UploadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <wsdl:input message="tns:ARMUploadHttpPostIn" />
+      <wsdl:output message="tns:ARMUploadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <wsdl:input message="tns:GetDistributionRateAvailabilityChangesHttpPostIn" />
+      <wsdl:output message="tns:GetDistributionRateAvailabilityChangesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <wsdl:input message="tns:GetICSTaskRateAvailHttpPostIn" />
+      <wsdl:output message="tns:GetICSTaskRateAvailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <wsdl:input message="tns:ConfirmSubmitRateAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:ConfirmSubmitRateAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <wsdl:input message="tns:GetDistributionModifiedUnitsHttpPostIn" />
+      <wsdl:output message="tns:GetDistributionModifiedUnitsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <wsdl:input message="tns:GetUnitDailyBestDiscountsHttpPostIn" />
+      <wsdl:output message="tns:GetUnitDailyBestDiscountsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <wsdl:input message="tns:GetUnitAvailablePromotionsHttpPostIn" />
+      <wsdl:output message="tns:GetUnitAvailablePromotionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <wsdl:input message="tns:GetPropertyAvailablePromotionsHttpPostIn" />
+      <wsdl:output message="tns:GetPropertyAvailablePromotionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <wsdl:input message="tns:RefreshDiscountCacheHttpPostIn" />
+      <wsdl:output message="tns:RefreshDiscountCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <wsdl:input message="tns:RefreshRateAvailCacheHttpPostIn" />
+      <wsdl:output message="tns:RefreshRateAvailCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <wsdl:input message="tns:RefreshCacheHttpPostIn" />
+      <wsdl:output message="tns:RefreshCacheHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <wsdl:input message="tns:UpdateCacheAvailabilityHttpPostIn" />
+      <wsdl:output message="tns:UpdateCacheAvailabilityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <wsdl:input message="tns:GetChannelRateCodesHttpPostIn" />
+      <wsdl:output message="tns:GetChannelRateCodesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <wsdl:input message="tns:GetMajorChannelsHttpPostIn" />
+      <wsdl:output message="tns:GetMajorChannelsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <wsdl:input message="tns:GetOpaqueChannelsHttpPostIn" />
+      <wsdl:output message="tns:GetOpaqueChannelsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <wsdl:input message="tns:GetPackagingChannelsHttpPostIn" />
+      <wsdl:output message="tns:GetPackagingChannelsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <wsdl:input message="tns:CheckOpaqueParticipationHttpPostIn" />
+      <wsdl:output message="tns:CheckOpaqueParticipationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <wsdl:input message="tns:CheckPackagingParticipationHttpPostIn" />
+      <wsdl:output message="tns:CheckPackagingParticipationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <wsdl:input message="tns:CheckDistroStatusHttpPostIn" />
+      <wsdl:output message="tns:CheckDistroStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <wsdl:input message="tns:GetDistroChannelInfoHttpPostIn" />
+      <wsdl:output message="tns:GetDistroChannelInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <wsdl:input message="tns:GetInventoryStatusHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <wsdl:input message="tns:GetDistributionCommissionHttpPostIn" />
+      <wsdl:output message="tns:GetDistributionCommissionHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RateAvailabilitySoap" type="tns:RateAvailabilitySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WebServiceLogin">
+      <soap:operation soapAction="http://tempuri.org/WebServiceLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WebServiceLoginServiceCredentials" part="ServiceCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <soap:operation soapAction="http://tempuri.org/GetUnitInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <soap:operation soapAction="http://tempuri.org/GetUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyBestPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <soap:operation soapAction="http://tempuri.org/GetUnitBestPricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <soap:operation soapAction="http://tempuri.org/GetUnitAvailabilityCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAvailability">
+      <soap:operation soapAction="http://tempuri.org/UpdateAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <soap:operation soapAction="http://tempuri.org/BlackoutUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <soap:operation soapAction="http://tempuri.org/GeSuppliertUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <soap:operation soapAction="http://tempuri.org/GetSuppliertUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierUnitAvailability">
+      <soap:operation soapAction="http://tempuri.org/UpdateSupplierUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanSupplierAvailability">
+      <soap:operation soapAction="http://tempuri.org/CleanSupplierAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://tempuri.org/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <soap:operation soapAction="http://tempuri.org/ARMUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <soap:operation soapAction="http://tempuri.org/GetDistributionRateAvailabilityChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <soap:operation soapAction="http://tempuri.org/GetICSTaskRateAvail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <soap:operation soapAction="http://tempuri.org/ConfirmSubmitRateAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <soap:operation soapAction="http://tempuri.org/GetDistributionModifiedUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionTask">
+      <soap:operation soapAction="http://tempuri.org/GetDistributionTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <soap:operation soapAction="http://tempuri.org/GetUnitDailyBestDiscounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <soap:operation soapAction="http://tempuri.org/GetUnitAvailablePromotions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <soap:operation soapAction="http://tempuri.org/GetPropertyAvailablePromotions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <soap:operation soapAction="http://tempuri.org/RefreshDiscountCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <soap:operation soapAction="http://tempuri.org/RefreshRateAvailCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <soap:operation soapAction="http://tempuri.org/RefreshCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <soap:operation soapAction="http://tempuri.org/UpdateCacheAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <soap:operation soapAction="http://tempuri.org/GetChannelRateCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <soap:operation soapAction="http://tempuri.org/GetMajorChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <soap:operation soapAction="http://tempuri.org/GetOpaqueChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <soap:operation soapAction="http://tempuri.org/GetPackagingChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <soap:operation soapAction="http://tempuri.org/CheckOpaqueParticipation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <soap:operation soapAction="http://tempuri.org/CheckPackagingParticipation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <soap:operation soapAction="http://tempuri.org/CheckDistroStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <soap:operation soapAction="http://tempuri.org/GetDistroChannelInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <soap:operation soapAction="http://tempuri.org/GetInventoryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <soap:operation soapAction="http://tempuri.org/GetDistributionCommission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RateAvailabilitySoap12" type="tns:RateAvailabilitySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WebServiceLogin">
+      <soap12:operation soapAction="http://tempuri.org/WebServiceLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WebServiceLoginServiceCredentials" part="ServiceCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyBestPricing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitBestPricing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitAvailabilityCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAvailability">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <soap12:operation soapAction="http://tempuri.org/BlackoutUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <soap12:operation soapAction="http://tempuri.org/GeSuppliertUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <soap12:operation soapAction="http://tempuri.org/GetSuppliertUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplierUnitAvailability">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSupplierUnitAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanSupplierAvailability">
+      <soap12:operation soapAction="http://tempuri.org/CleanSupplierAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap12:operation soapAction="http://tempuri.org/Upload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <soap12:operation soapAction="http://tempuri.org/ARMUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <soap12:operation soapAction="http://tempuri.org/GetDistributionRateAvailabilityChanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <soap12:operation soapAction="http://tempuri.org/GetICSTaskRateAvail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <soap12:operation soapAction="http://tempuri.org/ConfirmSubmitRateAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <soap12:operation soapAction="http://tempuri.org/GetDistributionModifiedUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionTask">
+      <soap12:operation soapAction="http://tempuri.org/GetDistributionTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitDailyBestDiscounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <soap12:operation soapAction="http://tempuri.org/GetUnitAvailablePromotions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <soap12:operation soapAction="http://tempuri.org/GetPropertyAvailablePromotions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <soap12:operation soapAction="http://tempuri.org/RefreshDiscountCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <soap12:operation soapAction="http://tempuri.org/RefreshRateAvailCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <soap12:operation soapAction="http://tempuri.org/RefreshCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCacheAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <soap12:operation soapAction="http://tempuri.org/GetChannelRateCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <soap12:operation soapAction="http://tempuri.org/GetMajorChannels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <soap12:operation soapAction="http://tempuri.org/GetOpaqueChannels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <soap12:operation soapAction="http://tempuri.org/GetPackagingChannels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <soap12:operation soapAction="http://tempuri.org/CheckOpaqueParticipation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <soap12:operation soapAction="http://tempuri.org/CheckPackagingParticipation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <soap12:operation soapAction="http://tempuri.org/CheckDistroStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetDistroChannelInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetInventoryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <soap12:operation soapAction="http://tempuri.org/GetDistributionCommission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RateAvailabilityHttpGet" type="tns:RateAvailabilityHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="WebServiceLogin">
+      <http:operation location="/WebServiceLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <http:operation location="/GetPropertyAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <http:operation location="/GetUnitInventory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <http:operation location="/GetUnitAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <http:operation location="/GetPropertyBestPricing" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <http:operation location="/GetUnitBestPricing" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <http:operation location="/GetUnitAvailabilityCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <http:operation location="/BlackoutUnit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <http:operation location="/GeSuppliertUnitAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <http:operation location="/GetSuppliertUnitAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <http:operation location="/Upload" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <http:operation location="/ARMUpload" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <http:operation location="/GetDistributionRateAvailabilityChanges" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <http:operation location="/GetICSTaskRateAvail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <http:operation location="/ConfirmSubmitRateAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <http:operation location="/GetDistributionModifiedUnits" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <http:operation location="/GetUnitDailyBestDiscounts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <http:operation location="/GetUnitAvailablePromotions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <http:operation location="/GetPropertyAvailablePromotions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <http:operation location="/RefreshDiscountCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <http:operation location="/RefreshRateAvailCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <http:operation location="/RefreshCache" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <http:operation location="/UpdateCacheAvailability" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <http:operation location="/GetChannelRateCodes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <http:operation location="/GetMajorChannels" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <http:operation location="/GetOpaqueChannels" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <http:operation location="/GetPackagingChannels" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <http:operation location="/CheckOpaqueParticipation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <http:operation location="/CheckPackagingParticipation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <http:operation location="/CheckDistroStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <http:operation location="/GetDistroChannelInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <http:operation location="/GetInventoryStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <http:operation location="/GetDistributionCommission" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RateAvailabilityHttpPost" type="tns:RateAvailabilityHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="WebServiceLogin">
+      <http:operation location="/WebServiceLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailability">
+      <http:operation location="/GetPropertyAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitInventory">
+      <http:operation location="/GetUnitInventory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailability">
+      <http:operation location="/GetUnitAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyBestPricing">
+      <http:operation location="/GetPropertyBestPricing" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitBestPricing">
+      <http:operation location="/GetUnitBestPricing" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailabilityCache">
+      <http:operation location="/GetUnitAvailabilityCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlackoutUnit">
+      <http:operation location="/BlackoutUnit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeSuppliertUnitAvailability">
+      <http:operation location="/GeSuppliertUnitAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliertUnitAvailability">
+      <http:operation location="/GetSuppliertUnitAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <http:operation location="/Upload" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ARMUpload">
+      <http:operation location="/ARMUpload" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionRateAvailabilityChanges">
+      <http:operation location="/GetDistributionRateAvailabilityChanges" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetICSTaskRateAvail">
+      <http:operation location="/GetICSTaskRateAvail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSubmitRateAvailability">
+      <http:operation location="/ConfirmSubmitRateAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionModifiedUnits">
+      <http:operation location="/GetDistributionModifiedUnits" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitDailyBestDiscounts">
+      <http:operation location="/GetUnitDailyBestDiscounts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnitAvailablePromotions">
+      <http:operation location="/GetUnitAvailablePromotions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyAvailablePromotions">
+      <http:operation location="/GetPropertyAvailablePromotions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshDiscountCache">
+      <http:operation location="/RefreshDiscountCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshRateAvailCache">
+      <http:operation location="/RefreshRateAvailCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCache">
+      <http:operation location="/RefreshCache" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheAvailability">
+      <http:operation location="/UpdateCacheAvailability" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelRateCodes">
+      <http:operation location="/GetChannelRateCodes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorChannels">
+      <http:operation location="/GetMajorChannels" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpaqueChannels">
+      <http:operation location="/GetOpaqueChannels" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackagingChannels">
+      <http:operation location="/GetPackagingChannels" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOpaqueParticipation">
+      <http:operation location="/CheckOpaqueParticipation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPackagingParticipation">
+      <http:operation location="/CheckPackagingParticipation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDistroStatus">
+      <http:operation location="/CheckDistroStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistroChannelInfo">
+      <http:operation location="/GetDistroChannelInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryStatus">
+      <http:operation location="/GetInventoryStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistributionCommission">
+      <http:operation location="/GetDistributionCommission" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RateAvailability">
+    <wsdl:port name="RateAvailabilitySoap" binding="tns:RateAvailabilitySoap">
+      <soap:address location="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RateAvailabilitySoap12" binding="tns:RateAvailabilitySoap12">
+      <soap12:address location="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RateAvailabilityHttpGet" binding="tns:RateAvailabilityHttpGet">
+      <http:address location="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RateAvailabilityHttpPost" binding="tns:RateAvailabilityHttpPost">
+      <http:address location="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx?wsdl" docRef="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" xmlns:q1="http://tempuri.org/" binding="q1:RateAvailabilitySoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://bur-lapp08.leisurelink.local:580/RateAvailability.asmx" xmlns:q2="http://tempuri.org/" binding="q2:RateAvailabilitySoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

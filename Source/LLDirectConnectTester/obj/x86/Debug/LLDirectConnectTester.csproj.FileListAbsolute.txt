@@ -1,0 +1,16 @@
+C:\Build\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.exe.config
+C:\Build\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.exe
+C:\Build\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.pdb
+C:\Build\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.exe
+C:\Build\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.pdb
+C:\Users\GVGutay\Documents\Repository\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.exe.config
+C:\Users\GVGutay\Documents\Repository\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.exe
+C:\Users\GVGutay\Documents\Repository\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.pdb
+C:\Users\GVGutay\Documents\Repository\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.exe
+C:\Users\GVGutay\Documents\Repository\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.pdb
+C:\Projects\LeisureLink\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.exe.config
+C:\Projects\LeisureLink\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.exe
+C:\Projects\LeisureLink\SOAP_Request_App\LLDirectConnectTester\bin\Debug\LLDirectConnectTester.pdb
+C:\Projects\LeisureLink\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.csprojResolveAssemblyReference.cache
+C:\Projects\LeisureLink\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.exe
+C:\Projects\LeisureLink\SOAP_Request_App\LLDirectConnectTester\obj\x86\Debug\LLDirectConnectTester.pdb

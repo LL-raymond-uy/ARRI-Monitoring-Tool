@@ -1,0 +1,89 @@
+   <?xml version="1.0" encoding="utf-8"?>
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap-env:Header>
+    <Interface xmlns="http://www.bookit.com/api/Documentation/XML/OTA/4/2011A/" ChannelIdentifierId="BookIt.com XML4" Version="2011A" Interface="SourceSys XML">
+      <ComponentInfo Id="04819" User="TiKoob" Pwd="TiKoob" ComponentType="Hotel"/>
+    </Interface>
+  </soap-env:Header>
+  <soap-env:Body>
+    <OTA_HotelResNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelResNotifRQ.xsd<http://www.opentravel.org/OTA/2003/05%20OTA_HotelResNotifRQ.xsd>" Version="1.003">
+      <HotelReservations>
+        <HotelReservation>
+         <RoomStays>
+            <RoomStay>
+              <RoomRates>
+                <RoomRate RoomTypeCode="10016" RatePlanCode="BKPROMO1" EffectiveDate="2013-12-05" ExpireDate="2013-12-07">
+                  <Rates>
+                    <Rate EffectiveDate="2013-12-05" ExpireDate="2013-12-07">
+                      <Total AmountBeforeTax="334.4" AmountAfterTax="374.53" CurrencyCode="USD"/>
+                    </Rate>
+                  </Rates>
+                </RoomRate>
+              </RoomRates>
+              <GuestCounts>
+                <GuestCount AgeQualifyingCode="10" Count="2"/>
+              </GuestCounts>
+              <TimeSpan Start="2013-12-05" End="2013-12-07"/>
+              <Total AmountBeforeTax="334.4" AmountAfterTax="374.53" CurrencyCode="USD"/>
+              <ResGuestRPHs>
+                <ResGuestRPH RPH="1"/>
+              </ResGuestRPHs>
+              <Guarantee>
+                <GuaranteesAccepted>
+                  <GuaranteeAccepted>
+                    <PaymentCard CardCode="MC" CardNumber="****************" ExpireDate="******" SeriesCode="***">
+                      <CardHolderName>BookIt.com</CardHolderName>
+                    </PaymentCard>
+                  </GuaranteeAccepted>
+                </GuaranteesAccepted>
+              </Guarantee>
+              <BasicPropertyInfo ChainCode="" HotelCode="04819"/>
+              <Comments>
+                <Comment>
+                  <Text>test</Text>
+                </Comment>
+              </Comments>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest RPH="1">
+             <Profiles>
+                <ProfileInfo>
+                  <Profile ProfileType="1">
+                    <Customer>
+                      <PersonName>
+                        <GivenName>Merchant</GivenName>
+                        <Surname>Prodtestx</Surname>
+                      </PersonName>
+                      <Telephone PhoneNumber="4439211900" PhoneTechType="Voice"/>
+                      <Email>merchant@merchant.com</Email<mailto:merchant@merchant.com%3c/Email>>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+            <ResGuest RPH="1">
+              <Profiles>
+                <ProfileInfo>
+                  <Profile ProfileType="1">
+                    <Customer>
+                      <PersonName>
+                        <GivenName>Jennifer</GivenName>
+                        <Surname>Garcia</Surname>
+                      </PersonName>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+             </Profiles>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <HotelReservationIDs>
+              <HotelReservationID ResID_Type="14" ResID_Value="27034445" ResID_Source="BookIt.com"/>
+            </HotelReservationIDs>
+          </ResGlobalInfo>
+        </HotelReservation>
+      </HotelReservations>
+    </OTA_HotelResNotifRQ>
+  </soap-env:Body>
+</soap-env:Envelope>

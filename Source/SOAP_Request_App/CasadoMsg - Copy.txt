@@ -1,0 +1,61 @@
+POST http://localhost:3573/LLWebServices.asmx/RoomMasterService HTTP/1.1
+Host: localhost:3573
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soap:Header>
+<HTNGHeader xmlns="http://htng.org/1.1/Header/">
+<From>
+<systemId></systemId>
+<Credential>
+<userName>5334</userName>
+<password>17150912</password>
+</Credential>
+</From>
+<To>
+<systemID>LeisureLink</systemID>
+</To>
+<timeStamp>2016-02-29T15:00:00-05:00</timeStamp>
+<echoToken>9720cf34-c32a-c944-9d70-a609cb33f447</echoToken>
+<transactionId>785905400011abc</transactionId>
+<action>Request</action>
+</HTNGHeader>
+</soap:Header>
+<soap:Body>
+<OTA_HotelInvCountNotifRQ EchoToken="fa51c533-b568-b95c-cb79-bb42c10eb961abc" TimeStamp="2016-02-29T15:00:00-05:00" Target="Production" Version="1.002" SequenceNmbr="785901500" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Inventories HotelCode="5334" HotelName="LeisurelinkTSET">
+<Inventory>
+<StatusApplicationControl Start="2016-04-17" End="2016-04-17" InvTypeCode="11667" Override="true"/>
+<InvCounts>
+<InvCount CountType="1" Count="0"/>
+</InvCounts>
+</Inventory>
+<Inventory>
+<StatusApplicationControl Start="2016-04-18" End="2016-04-18" InvTypeCode="11667" Override="true"/>
+<InvCounts>
+<InvCount CountType="1" Count="0"/>
+</InvCounts>
+</Inventory>
+<Inventory>
+<StatusApplicationControl Start="2016-04-19" End="2016-04-19" InvTypeCode="11667" Override="true"/>
+<InvCounts>
+<InvCount CountType="1" Count="0"/>
+</InvCounts>
+</Inventory>
+<Inventory>
+<StatusApplicationControl Start="2016-04-20" End="2016-04-20" InvTypeCode="11667" Override="true"/>
+<InvCounts>
+<InvCount CountType="1" Count="0"/>
+</InvCounts>
+</Inventory>
+<Inventory>
+<StatusApplicationControl Start="2016-04-21" End="2016-04-21" InvTypeCode="11667" Override="true"/>
+<InvCounts>
+<InvCount CountType="1" Count="0"/>
+</InvCounts>
+</Inventory>
+
+</Inventories>
+</OTA_HotelInvCountNotifRQ>
+</soap:Body>
+</soap:Envelope>

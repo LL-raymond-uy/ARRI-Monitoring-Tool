@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap-env:Header>
+    <Interface xmlns="http://www.bookit.com/api/Documentation/XML/OTA/4/2011A/" ChannelIdentifierId="BookIt.com XML4" Version="2011A" Interface="SourceSys XML">
+      <ComponentInfo Id="05102" User="TiKoob" Pwd="TiKoob" ComponentType="Hotel"/>
+    </Interface>
+  </soap-env:Header>
+  <soap-env:Body>
+    <OTA_HotelResNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelResNotifRQ.xsd" Version="1.003">
+      <HotelReservations>
+        <HotelReservation>
+          <RoomStays>
+            <RoomStay>
+              <RoomRates>
+                <RoomRate RoomTypeCode="10559" RatePlanCode="BKPROMO1" EffectiveDate="2014-02-23" ExpireDate="2014-02-24">
+                  <Rates>
+                    <Rate EffectiveDate="2014-02-23" ExpireDate="2014-02-24">
+                      <Base AmountBeforeTax="120" AmountAfterTax="139.08" CurrencyCode="USD"/>
+                      <Total AmountBeforeTax="120" AmountAfterTax="139.08" CurrencyCode="USD"/>
+                    </Rate>
+                  </Rates>
+                </RoomRate>
+              </RoomRates>
+              <GuestCounts>
+                <GuestCount AgeQualifyingCode="10" Count="2"/>
+              </GuestCounts>
+              <TimeSpan Start="2014-02-23" End="2014-02-24"/>
+              <Total AmountBeforeTax="120" AmountAfterTax="139.08" CurrencyCode="USD"/>
+              <BasicPropertyInfo HotelCode="05102"/>
+              <ResGuestRPHs>
+                <ResGuestRPH RPH="1"/>
+              </ResGuestRPHs>
+              <Comments>
+                <Comment>
+                  <Text>Test</Text>
+                </Comment>
+              </Comments>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest ResGuestRPH="1" RPH="1">
+              <Profiles>
+                <ProfileInfo>
+                  <Profile ProfileType="1">
+                    <Customer>
+                      <PersonName>
+                        <GivenName>Tanya</GivenName>
+                        <Surname>Janet</Surname>
+                      </PersonName>
+                      <Telephone PhoneNumber="626-696-4500" PhoneTechType="1"/>
+                      <Email>tjanet@leisurelink.com</Email>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+            <ResGuest ResGuestRPH="1" RPH="1">
+              <Profiles>
+                <ProfileInfo>
+                  <Profile ProfileType="1">
+                    <Customer>
+                      <PersonName>
+                        <GivenName>TEST</GivenName>
+                        <Surname>TEST</Surname>
+                      </PersonName>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <HotelReservationIDs>
+              <HotelReservationID ResID_Type="14" ResID_Value="28404395TESTProd" ResID_Source="BookIt.com"/>
+            </HotelReservationIDs>
+          </ResGlobalInfo>
+        </HotelReservation>
+      </HotelReservations>
+    </OTA_HotelResNotifRQ>
+  </soap-env:Body>
+</soap-env:Envelope>

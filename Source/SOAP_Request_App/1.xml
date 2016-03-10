@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OTA_HotelResNotifRQ Version="0">
+  <POS>
+    <Source>
+      <RequestorID ID="21">
+        <CompanyName CompanyShortName="Travelocity" />
+      </RequestorID>
+    </Source>
+  </POS>
+  <HotelReservations>
+    <HotelReservation RoomStayReservation="true" CreateDateTime="2013-09-06T12:01:15Z" LastModifyDateTime="2013-09-06T12:01:15Z" ResStatus="Book">
+      <POS>
+        <Source>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="??268524_null??" Code="45781433">Travelocity</CompanyName>
+          </BookingChannel>
+        </Source>
+      </POS>
+      <RoomStays>
+        <RoomStay RoomStayStatus="Book" IndexNumber="14982326">
+          <RoomTypes>
+            <RoomType NumberOfUnits="1" RoomTypeCode="8884" NonSmoking="true">
+              <RoomDescription Name="Tower Queen Bed" Language="en-US" />
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="XTN4" RatePlanType="5" PriceViewableInd="false" PrepaidIndicator="true" />
+          </RatePlans>
+          <RoomRates>
+            <RoomRate InvBlockCode="6USXTN4">
+              <Rates>
+                <Rate EffectiveDate="2013-09-13" ExpireDate="2013-09-14" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="105.78" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="105.78" AmountAfterTax="117.42" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts>
+            <GuestCount AgeQualifyingCode="10" Count="2" ResGuestRPH="1" />
+          </GuestCounts>
+          <CancelPenalties CancelPolicyIndicator="true">
+            <CancelPenalty>
+              <Deadline OffsetTimeUnit="Day" OffsetUnitMultiplier="45" />
+              <AmountPercent NmbrOfNights="1" />
+            </CancelPenalty>
+            <CancelPenalty>
+              <Deadline OffsetTimeUnit="Day" OffsetUnitMultiplier="365" />
+              <AmountPercent NmbrOfNights="1" />
+            </CancelPenalty>
+          </CancelPenalties>
+          <Total AmountBeforeTax="105.78" AmountAfterTax="117.42" CurrencyCode="USD">
+            <Taxes>
+              <Tax Code="41" />
+            </Taxes>
+          </Total>
+          <TPA_Extensions>
+            <Promotions>
+              <Promotion PromotionCode="TVLY.COM PC">
+                <PromotionDescriptions>
+                  <PromotionDescription Name="Spend a minimum of $250 and Save an Additional 10% off by entering &quot;10SUMMER&quot; in the promotional code section at checkout. You can also call 855-502-2879 to speak to an agent about this exclusive offer for this hotel. Air and Hotel Packages excluded." />
+                </PromotionDescriptions>
+              </Promotion>
+              <Promotion PromotionCode="Notification">
+                <PromotionDescriptions>
+                  <PromotionDescription Name="Please note that rooms are not guaranteed to be available right away due to cleaning or maintenance. Minimum age required at check-in is 21." />
+                </PromotionDescriptions>
+              </Promotion>
+            </Promotions>
+          </TPA_Extensions>
+          <Reference ID="L21997URO8JSU" Type="40" />
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest ResGuestRPH="1" AgeQualifyingCode="10">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>Kaitlyn</GivenName>
+                    <Surname>Krahl</Surname>
+                  </PersonName>
+                </Customer>
+                <CompanyInfo />
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+      <ResGlobalInfo>
+        <TimeSpan Start="2013-09-13" Duration="P1D" End="2013-09-14" />
+        <Guarantee>
+          <GuaranteesAccepted>
+            <GuaranteeAccepted PaymentTransactionTypeCode="reserve">
+              <PaymentCard CardType="1" CardCode="AX" CardNumber="370268017729521" ExpireDate="0318">
+                <CardHolderName>TVLYFIRST TVLYLAST</CardHolderName>
+              </PaymentCard>
+            </GuaranteeAccepted>
+          </GuaranteesAccepted>
+        </Guarantee>
+        <Total AmountBeforeTax="105.78" AmountAfterTax="117.42" CurrencyCode="USD">
+          <Taxes>
+            <Tax Code="41" />
+          </Taxes>
+        </Total>
+        <HotelReservationIDs>
+          <HotelReservationID ResID_Type="14" ResID_Value="10201667592" ResID_Source="GH" />
+          <HotelReservationID ResID_Type="34" ResID_Value="632497864561" ResID_Source="??268524_null??" />
+        </HotelReservationIDs>
+        <Profiles>
+          <ProfileInfo>
+            <UniqueID ID="113795" Type="10" />
+            <Profile>
+              <CompanyInfo>
+                <CompanyName CompanyShortName="The Woodlands Inn" />
+              </CompanyInfo>
+            </Profile>
+          </ProfileInfo>
+        </Profiles>
+      </ResGlobalInfo>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResNotifRQ>

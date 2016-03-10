@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OTA_HotelResNotifRQ Version="0">
+  <POS>
+    <Source>
+      <RequestorID ID="21">
+        <CompanyName CompanyShortName="Travelocity" />
+      </RequestorID>
+    </Source>
+  </POS>
+  <HotelReservations>
+    <HotelReservation RoomStayReservation="true" CreateDateTime="2013-11-10T17:44:12Z" LastModifyDateTime="2013-11-10T17:44:12Z" ResStatus="Book">
+      <POS>
+        <Source>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="??4464188_null??" Code="45781433">Travelocity</CompanyName>
+          </BookingChannel>
+        </Source>
+      </POS>
+      <RoomStays>
+        <RoomStay RoomStayStatus="Book" IndexNumber="15745821">
+          <RoomTypes>
+            <RoomType NumberOfUnits="1" RoomTypeCode="9755" NonSmoking="true">
+              <RoomDescription Name="Motel - 1 Queen Bed" Language="en-US" />
+            </RoomType>
+          </RoomTypes>
+          <RatePlans>
+            <RatePlan RatePlanCode="XTN2" RatePlanType="5" PriceViewableInd="false" PrepaidIndicator="true" />
+          </RatePlans>
+          <RoomRates>
+            <RoomRate InvBlockCode="7IZXTN2">
+              <Rates>
+                <Rate EffectiveDate="2013-11-14" ExpireDate="2013-11-15" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="49.20" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="49.20" AmountAfterTax="55.60" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+                <Rate EffectiveDate="2013-11-15" ExpireDate="2013-11-16" ExpireDateExclusiveIndicator="true" RoomPricingType="Per night">
+                  <Base AmountBeforeTax="82.00" CurrencyCode="USD" />
+                  <Total AmountBeforeTax="82.00" AmountAfterTax="92.66" CurrencyCode="USD">
+                    <Taxes>
+                      <Tax Code="41" />
+                    </Taxes>
+                  </Total>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <GuestCounts>
+            <GuestCount AgeQualifyingCode="10" Count="2" ResGuestRPH="1" />
+          </GuestCounts>
+          <CancelPenalties CancelPolicyIndicator="true">
+            <CancelPenalty>
+              <Deadline OffsetTimeUnit="Day" OffsetUnitMultiplier="45" />
+              <AmountPercent NmbrOfNights="2" />
+            </CancelPenalty>
+            <CancelPenalty>
+              <Deadline OffsetTimeUnit="Day" OffsetUnitMultiplier="365" />
+              <AmountPercent NmbrOfNights="1" />
+            </CancelPenalty>
+          </CancelPenalties>
+          <Total AmountBeforeTax="131.20" AmountAfterTax="148.26" CurrencyCode="USD">
+            <Taxes>
+              <Tax Code="41" />
+            </Taxes>
+          </Total>
+          <TPA_Extensions>
+            <Promotions>
+              <Promotion PromotionCode="Notification">
+                <PromotionDescriptions>
+                  <PromotionDescription Name="Check-in front desk, in Yellow Building. Minimum age required at check-in is 21. Please note the following fees- USD 15.00 per pet, per day in pet friendly rooms, as available. USD 5.00 per guest, per day over the standard occupancy." />
+                </PromotionDescriptions>
+              </Promotion>
+            </Promotions>
+          </TPA_Extensions>
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest ResGuestRPH="1" AgeQualifyingCode="10">
+          <Profiles>
+            <ProfileInfo>
+              <Profile ProfileType="1">
+                <Customer>
+                  <PersonName>
+                    <GivenName>JAMES</GivenName>
+                    <Surname>WIDANKA</Surname>
+                  </PersonName>
+                </Customer>
+                <CompanyInfo />
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+      <ResGlobalInfo>
+        <TimeSpan Start="2013-11-14" Duration="P2D" End="2013-11-16" />
+        <Guarantee>
+          <GuaranteesAccepted>
+            <GuaranteeAccepted PaymentTransactionTypeCode="reserve">
+              <PaymentCard CardType="1" CardCode="AX" CardNumber="xxx" ExpireDate="0817">
+                <CardHolderName>TVLYFIRST TVLYLAST</CardHolderName>
+              </PaymentCard>
+            </GuaranteeAccepted>
+          </GuaranteesAccepted>
+        </Guarantee>
+        <Total AmountBeforeTax="131.20" AmountAfterTax="148.26" CurrencyCode="USD">
+          <Taxes>
+            <Tax Code="41" />
+          </Taxes>
+        </Total>
+        <HotelReservationIDs>
+          <HotelReservationID ResID_Type="14" ResID_Value="10210367621" ResID_Source="GH" />
+          <HotelReservationID ResID_Type="34" ResID_Value="133140609208" ResID_Source="??4464188_null??" />
+        </HotelReservationIDs>
+        <Profiles>
+          <ProfileInfo>
+            <UniqueID ID="131327" Type="10" />
+            <Profile>
+              <CompanyInfo>
+                <CompanyName CompanyShortName="Beachgate CondoSuites and Motel" />
+              </CompanyInfo>
+            </Profile>
+          </ProfileInfo>
+        </Profiles>
+      </ResGlobalInfo>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResNotifRQ>
